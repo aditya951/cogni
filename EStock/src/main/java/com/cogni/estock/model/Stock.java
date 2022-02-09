@@ -3,7 +3,9 @@ package com.cogni.estock.model;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -11,84 +13,59 @@ import org.hibernate.annotations.CreationTimestamp;
 @Entity
 public class Stock {
 	
-	
 	@Id
-	private int companyCode; 
-	private String companyName; 
-	private String companyCEO; 
-	private long companyTurnover; 
-	private String companyWebsite; 
-	private String stockExchangeName;
+	@GeneratedValue
+	private long id;
+	
 	private double stockPrice;
 	//@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss")
 	@CreationTimestamp
 	private LocalDateTime date;
+	
+//	@ManyToOne
+//	private Company company;
+	
 	
 	public Stock() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Stock(int companyCode, String companyName, String companyCEO, long companyTurnover, String companyWebsite,
-			String stockExchangeName, double stockPrice, LocalDateTime date) {
+	
+	
+	public Stock(long id, double stockPrice, LocalDateTime date, Company comapany) {
 		super();
-		this.companyCode = companyCode;
-		this.companyName = companyName;
-		this.companyCEO = companyCEO;
-		this.companyTurnover = companyTurnover;
-		this.companyWebsite = companyWebsite;
-		this.stockExchangeName = stockExchangeName;
+		this.id = id;
 		this.stockPrice = stockPrice;
 		this.date = date;
+		//this.company = company;
 	}
 
-	public int getCompanyCode() {
-		return companyCode;
+
+
+	public long getId() {
+		return id;
 	}
 
-	public void setCompanyCode(int companyCode) {
-		this.companyCode = companyCode;
+
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
-	public String getCompanyName() {
-		return companyName;
-	}
 
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
+//
+//	public Company getComapany() {
+//		return company;
+//	}
+//
+//
+//
+//	public void setComapany(Company company) {
+//		this.company = company;
+//	}
 
-	public String getCompanyCEO() {
-		return companyCEO;
-	}
 
-	public void setCompanyCEO(String companyCEO) {
-		this.companyCEO = companyCEO;
-	}
-
-	public long getCompanyTurnover() {
-		return companyTurnover;
-	}
-
-	public void setCompanyTurnover(long companyTurnover) {
-		this.companyTurnover = companyTurnover;
-	}
-
-	public String getCompanyWebsite() {
-		return companyWebsite;
-	}
-
-	public void setCompanyWebsite(String companyWebsite) {
-		this.companyWebsite = companyWebsite;
-	}
-
-	public String getStockExchangeName() {
-		return stockExchangeName;
-	}
-
-	public void setStockExchangeName(String stockExchangeName) {
-		this.stockExchangeName = stockExchangeName;
-	}
 
 	public double getStockPrice() {
 		return stockPrice;
@@ -106,16 +83,14 @@ public class Stock {
 		this.date = date;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Stock [companyCode=" + companyCode + ", companyName=" + companyName + ", companyCEO=" + companyCEO
-				+ ", companyTurnover=" + companyTurnover + ", companyWebsite=" + companyWebsite + ", stockExchangeName="
-				+ stockExchangeName + ", stockPrice=" + stockPrice + ", date=" + date + "]";
+		return "Stock [id=" + id + ", stockPrice=" + stockPrice + ", date=" + date + "]";
 	}
+
 	
 	
-	
-	
-	
-	
+
 }

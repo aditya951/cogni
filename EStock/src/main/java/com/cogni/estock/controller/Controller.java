@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cogni.estock.model.Stock;
+import com.cogni.estock.model.Company;
 import com.cogni.estock.service.StockService;
 
 @RestController
@@ -31,15 +31,15 @@ public class Controller {
 	
 	@GetMapping("/company/getall")
 	public ResponseEntity<?> getAll(){
-		List<Stock> allStock = stockService.getAllStock();
+		List<Company> allStock = stockService.getAllStock();
 		
-		return new ResponseEntity<List<Stock>>(allStock,HttpStatus.OK);
+		return new ResponseEntity<List<Company>>(allStock,HttpStatus.OK);
 	}
 	
 	@PostMapping(value="/company/register")
-	public ResponseEntity<?> addStock(@RequestBody Stock stock){
+	public ResponseEntity<?> addStock(@RequestBody Company stock){
 		if(stockService.addStock(stock)!=null)
-		return new ResponseEntity<Stock>(stock,HttpStatus.CREATED);
+		return new ResponseEntity<Company>(stock,HttpStatus.CREATED);
 	
 		return new ResponseEntity<String>("no data",HttpStatus.CONFLICT);
 	}
@@ -58,10 +58,10 @@ public class Controller {
 	
 	
 	@PutMapping("/update")
-	public ResponseEntity<?> updateStock(@RequestBody Stock stock){
+	public ResponseEntity<?> updateStock(@RequestBody Company stock){
 		
 		if(stockService.updateStock(stock))
-		return new ResponseEntity<Stock>(stock,HttpStatus.CREATED);
+		return new ResponseEntity<Company>(stock,HttpStatus.CREATED);
 	
 		return new ResponseEntity<String>("update unsuccessfull",HttpStatus.INTERNAL_SERVER_ERROR);
 	}

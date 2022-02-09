@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cogni.estock.model.Stock;
+import com.cogni.estock.model.Company;
 import com.cogni.estock.repository.StockRepository;
 
 @Service
@@ -15,17 +15,17 @@ public class StockService {
 	private StockRepository stockRepository;
 	
 	
-	public List<Stock> getAllStock(){
-		List<Stock> stockList = stockRepository.findAll();
+	public List<Company> getAllStock(){
+		List<Company> stockList = stockRepository.findAll();
 	return stockList;
 	
 	}
 	
-	public Stock addStock(Stock stock){
+	public Company addStock(Company stock){
 		if(stock.getCompanyTurnover()>=100000000) {
-			return stockRepository.saveAndFlush(stock);
+			return stockRepository.save(stock);
 		}
-		return new Stock();
+		return new Company();
 	
 	}
 	
@@ -34,9 +34,9 @@ public class StockService {
 		return true;
 	}
 	
-	public boolean updateStock(Stock stock) {
+	public boolean updateStock(Company stock) {
 		
-		Stock stock1 = stockRepository.getById(stock.getCompanyCode());
+		Company stock1 = stockRepository.getById(stock.getCompanyCode());
 		
 		if(stock1!=null) {
 			stock1.setCompanyCEO(stock.getCompanyCEO());
@@ -44,9 +44,6 @@ public class StockService {
 			stock1.setCompanyTurnover(stock.getCompanyTurnover());
 			stock1.setCompanyWebsite(stock.getCompanyWebsite());
 			stock1.setStockExchangeName(stock.getStockExchangeName());
-			stock1.setDate(stock1.getDate());
-			stock1.setStockPrice(stock.getStockPrice());
-			
 			stockRepository.saveAndFlush(stock1);
 			
 		}
