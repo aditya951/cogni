@@ -22,8 +22,36 @@ public class StockService {
 	}
 	
 	public Stock addStock(Stock stock){
-	  return stockRepository.saveAndFlush(stock);
-	
+		if(stock.getCompanyTurnover()>=100000000) {
+			return stockRepository.saveAndFlush(stock);
+		}
+		return new Stock();
 	
 	}
+	
+	public boolean deleteStock(int id) {
+		stockRepository.deleteById(id);
+		return true;
+	}
+	
+	public boolean updateStock(Stock stock) {
+		
+		Stock stock1 = stockRepository.getById(stock.getCompanyCode());
+		
+		if(stock1!=null) {
+			stock1.setCompanyCEO(stock.getCompanyCEO());
+			stock1.setCompanyName(stock.getCompanyName());
+			stock1.setCompanyTurnover(stock.getCompanyTurnover());
+			stock1.setCompanyWebsite(stock.getCompanyWebsite());
+			stock1.setStockExchangeName(stock.getStockExchangeName());
+			stock1.setDate(stock1.getDate());
+			stock1.setStockPrice(stock.getStockPrice());
+			
+			stockRepository.saveAndFlush(stock1);
+			
+		}
+		
+		return true;
+	}
+	
 }
