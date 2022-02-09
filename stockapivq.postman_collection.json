@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "45b3f0d3-b1a0-41c0-8baf-704d6b756ede",
+		"name": "stockapivq",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8082/api/v1.0/market/getall",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/v1.0/market/getall",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1.0",
+						"market",
+						"getall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/api/v1.0/market/company/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"companyCode\" : 5,\r\n\t\"companyName\": \"fry\",\r\n\t\"companyCEO\": \"kajalh\",\r\n\t \"companyTurnover\": 100000000,\r\n\t \"companyWebsite\":\"www.fry.com\",\r\n\t \"stockExchangeName\": \"bse\",\r\n\t \"stockPrice\":125.0\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/v1.0/market/company/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1.0",
+						"market",
+						"company",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/api/v1.0/market/delete/5",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/v1.0/market/delete/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1.0",
+						"market",
+						"delete",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8082/api/v1.0/market/update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"companyCode\" : 5,\r\n\t\"companyName\": \"nike\",\r\n\t\"companyCEO\": \"aditya jatav\",\r\n\t \"companyTurnover\": 100000000,\r\n\t \"companyWebsite\":\"www.fry.com\",\r\n\t \"stockExchangeName\": \"bse\",\r\n\t \"stockPrice\":125.0\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/v1.0/market/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1.0",
+						"market",
+						"update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
