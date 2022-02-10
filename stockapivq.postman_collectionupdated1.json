@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "0f73012f-fedd-4f0b-81d9-a2fcea622625",
+		"name": "stockapivq",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getALL companywith stocks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/v1.0/market/company/getall",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1.0",
+						"market",
+						"company",
+						"getall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "registercompanywithstock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"companyName\": \"kfc\",\r\n\t\"companyCEO\": \"puja\",\r\n\t \"companyTurnover\": 1159687456,\r\n\t \"companyWebsite\":\"www.kfc.com\",\r\n\t \"stockExchangeName\": \"bse\",\r\n\t \"stocks\":[{\"stockPrice\":201.55}]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/v1.0/market/company/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1.0",
+						"market",
+						"company",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletecompanybyid",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/v1.0/market/company/delete/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1.0",
+						"market",
+						"company",
+						"delete",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddNewStockOnly",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"companyCode\" : 3,\r\n\t\"companyName\": \"nike\",\r\n\t\"companyCEO\": \"aditya porsi\",\r\n\t \"companyTurnover\": 100000000,\r\n\t \"companyWebsite\":\"www.fry.com\",\r\n\t \"stockExchangeName\": \"bse\",\r\n\t \"stocks\":[{\"stockPrice\":500.0}]\r\n\t \r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/v1.0/market/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1.0",
+						"market",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "registercompanywithoutstock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"companyName\": \"dominos\",\r\n\t\"companyCEO\": \"nidhi\",\r\n\t \"companyTurnover\": 11596545454,\r\n\t \"companyWebsite\":\"www.dominos.com\",\r\n\t \"stockExchangeName\": \"bse\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/v1.0/market/company/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1.0",
+						"market",
+						"company",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddNewStockOnly",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"stockPrice\":498.01\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/v1.0/market/stock/put/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1.0",
+						"market",
+						"stock",
+						"put",
+						"11"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cogni.estock.model.Company;
+import com.cogni.estock.model.Stock;
 import com.cogni.estock.repository.StockRepository;
 
 @Service
@@ -29,6 +30,11 @@ public class StockService {
 	
 	}
 	
+	public Company getCompanyInfo(int cid){
+	Company details = stockRepository.findById(cid).get();
+	return details;
+	
+	}
 	public boolean deleteStock(int id) {
 		stockRepository.deleteById(id);
 		return true;
@@ -44,7 +50,27 @@ public class StockService {
 			stock1.setCompanyTurnover(stock.getCompanyTurnover());
 			stock1.setCompanyWebsite(stock.getCompanyWebsite());
 			stock1.setStockExchangeName(stock.getStockExchangeName());
-			stockRepository.saveAndFlush(stock1);
+			List<Stock> stocksfromdb = stock1.getStocks();
+			List<Stock> stocks2 = stock.getStocks();
+			stocksfromdb.addAll(stocks2);
+			stock1.setStocks(stocksfromdb);
+			stockRepository.save(stock1);
+			
+		}
+		
+		return true;
+	}
+	
+	public boolean updateStockbyID(Stock stock,int cid) {
+		
+		Company stock1 = stockRepository.findById(cid).get();
+		
+		if(stock1!=null) {
+			
+			List<Stock> stocksfromdb = stock1.getStocks();
+			stocksfromdb.add(stock);
+			stock1.setStocks(stocksfromdb);
+			stockRepository.save(stock1);
 			
 		}
 		
