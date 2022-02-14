@@ -46,7 +46,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZGl0eWEiLCJpYXQiOjE2NDQ1Mjc4ODMsImV4cCI6MTY0NDUyODE4M30.8ZzRHSvkGKSGWaJndclVyD1G7-rg_DFX7eP38o89xr4",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZGl0eWEiLCJpYXQiOjE2NDQ3ODA5NDcsImV4cCI6MTY0NDc4MTI0N30.qqVhbdp2r9nhvRdlCI3_pwWbvjgzaSrfAe2zw7KlLJc",
 							"type": "string"
 						}
 					]
@@ -103,6 +103,73 @@
 						"auth",
 						"v1",
 						"addUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calling Estock from jwt microsvc with id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZGl0eWEiLCJpYXQiOjE2NDQ3ODA5NDcsImV4cCI6MTY0NDc4MTI0N30.qqVhbdp2r9nhvRdlCI3_pwWbvjgzaSrfAe2zw7KlLJc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/api/v1.0/market/company/info/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"v1.0",
+						"market",
+						"company",
+						"info",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calling Estock from jwt microsvc ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZGl0eWEiLCJpYXQiOjE2NDQ3ODA5NDcsImV4cCI6MTY0NDc4MTI0N30.qqVhbdp2r9nhvRdlCI3_pwWbvjgzaSrfAe2zw7KlLJc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/api/v1.0/market/company/getall",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"v1.0",
+						"market",
+						"company",
+						"getall"
 					]
 				}
 			},

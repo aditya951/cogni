@@ -6,12 +6,12 @@
 	},
 	"item": [
 		{
-			"name": "getALL companywith stocks",
+			"name": "getALL companywith stocks with id",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8082/api/v1.0/market/company/getall",
+					"raw": "http://localhost:8082/api/v1.0/market/company/info/8",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -22,7 +22,8 @@
 						"v1.0",
 						"market",
 						"company",
-						"getall"
+						"info",
+						"8"
 					]
 				}
 			},
@@ -85,13 +86,13 @@
 			"response": []
 		},
 		{
-			"name": "AddNewStockOnly",
+			"name": "update comapny and stock",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\r\n    \"companyCode\" : 3,\r\n\t\"companyName\": \"nike\",\r\n\t\"companyCEO\": \"aditya porsi\",\r\n\t \"companyTurnover\": 100000000,\r\n\t \"companyWebsite\":\"www.fry.com\",\r\n\t \"stockExchangeName\": \"bse\",\r\n\t \"stocks\":[{\"stockPrice\":500.0}]\r\n\t \r\n\r\n}",
+					"raw": "{\r\n\r\n    \"companyCode\" : 3,\r\n\t\"companyName\": \"nike\",\r\n\t\"companyCEO\": \"aditya porsi\",\r\n\t \"companyTurnover\": 100000000,\r\n\t \"companyWebsite\":\"www.fry.com\",\r\n\t \"stockExchangeName\": \"bse\",\r\n\t \"stocks\":[{\"stockPrice\":8500.0}]\r\n\t \r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -122,7 +123,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"companyName\": \"dominos\",\r\n\t\"companyCEO\": \"nidhi\",\r\n\t \"companyTurnover\": 11596545454,\r\n\t \"companyWebsite\":\"www.dominos.com\",\r\n\t \"stockExchangeName\": \"bse\"\r\n\r\n}",
+					"raw": "{\r\n\t\"companyName\": \"Bata\",\r\n\t\"companyCEO\": \"Ratan tata\",\r\n\t \"companyTurnover\": 1100056546465,\r\n\t \"companyWebsite\":\"www.bata.com\",\r\n\t \"stockExchangeName\": \"bse\"\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -175,6 +176,54 @@
 						"stock",
 						"put",
 						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getallcompany",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/v1.0/market/company/getall",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1.0",
+						"market",
+						"company",
+						"getall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getbyCompanyname",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/api/v1.0/market/company/info/name/nike",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"v1.0",
+						"market",
+						"company",
+						"info",
+						"name",
+						"nike"
 					]
 				}
 			},

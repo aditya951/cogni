@@ -14,7 +14,7 @@ public class UserJwtApplication {
 	public FilterRegistrationBean jwtFilter() {
 		FilterRegistrationBean fb = new FilterRegistrationBean();
 		fb.setFilter(new JWTFilter());
-		fb.addUrlPatterns("/api/v1/*");
+		fb.addUrlPatterns("/api/v1/*","/api/v1.0/market/*");
 		return fb;
 	}
 

@@ -13,4 +13,6 @@ import com.cogni.estock.model.Company;
 public interface StockRepository extends JpaRepository<Company, Integer> {
 	
 
+	public Company findBycompanyName(String companyName);
+	
 }
