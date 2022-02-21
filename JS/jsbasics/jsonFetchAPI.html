@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      var xhr = new XMLHttpRequest();
+      xhr.onload = success;
+      xhr.onerror = error;
+
+      xhr.open("GET", "https://reqres.in/api/users/4");
+      xhr.send();
+      function success() {
+        var data = JSON.parse(this.responseText);
+        console.log(data);
+      }
+
+      function error(err) {
+        console.log("Request failed");
+      }
+    </script>
+  </body>
+</html>

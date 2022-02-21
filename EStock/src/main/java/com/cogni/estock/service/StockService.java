@@ -1,5 +1,6 @@
 package com.cogni.estock.service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,16 +11,23 @@ import com.cogni.estock.exception.CustomException;
 import com.cogni.estock.model.Company;
 import com.cogni.estock.model.Stock;
 import com.cogni.estock.repository.StockRepository;
+import com.cogni.estock.utility.StockUtility;
 
 @Service
 public class StockService {
 
 	@Autowired
 	private StockRepository stockRepository;
+	
+	@Autowired
+	private StockUtility stockUtility;
 
 	public List<Company> getAllStock() {
 		List<Company> stockList = stockRepository.findAll();
-		return stockList;
+		
+		List<Company> findLatest = stockUtility.findLatest(stockList);
+		//System.out.println(findLatest +" aditya");
+		return findLatest;
 
 	}
 
@@ -44,7 +52,9 @@ public class StockService {
 		Optional<Company> details = stockRepository.findById(cid);
 		
 		if (details.isPresent()) {
-			return details.get();
+			 Company company = details.get();
+			 company.getStocks().sort(Comparator.comparing(Stock::getDate).reversed());
+			 return company;
 		} else {
 			throw new CustomException("ID not found");
 		}
@@ -75,10 +85,10 @@ Optional<Company> details = stockRepository.findById(id);
 			stock1.setCompanyTurnover(stock.getCompanyTurnover());
 			stock1.setCompanyWebsite(stock.getCompanyWebsite());
 			stock1.setStockExchangeName(stock.getStockExchangeName());
-			List<Stock> stocksfromdb = stock1.getStocks();
-			List<Stock> stocks2 = stock.getStocks();
-			stocksfromdb.addAll(stocks2);
-			stock1.setStocks(stocksfromdb);
+//			List<Stock> stocksfromdb = stock1.getStocks();
+//			List<Stock> stocks2 = stock.getStocks();
+//			stocksfromdb.addAll(stocks2);
+//			stock1.setStocks(stocksfromdb);
 			stockRepository.save(stock1);
 
 		}

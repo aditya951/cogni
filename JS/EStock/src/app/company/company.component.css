@@ -1,0 +1,10 @@
+td {
+  padding: 5px;
+  font-size: 95%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+th {
+  text-align: center;
+}

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,12 +24,13 @@ import com.cogni.estock.service.StockService;
 
 @RestController
 @RequestMapping("api/v1.0/market")
+@CrossOrigin(origins="http://localhost:4200/")
 public class Controller {
 
 	@Autowired
 	StockService stockService;
 
-	@GetMapping("hello")
+	@GetMapping("/hello")
 	public String hello() {
 		return "hello Aditya";
 	}
@@ -37,15 +39,16 @@ public class Controller {
 	public ResponseEntity<?> getAll() {
 		List<Company> allStock = stockService.getAllStock();
 
-		if (allStock != null) {
-			CacheControl cacheControl = CacheControl.maxAge(30, TimeUnit.MINUTES);
+//		if (allStock != null) {
+//			CacheControl cacheControl = CacheControl.maxAge(30, TimeUnit.MINUTES);
 
 			// return ResponseEntity.ok().cacheControl(cacheControl).body(allStock);
-			return ResponseEntity.ok().cacheControl(cacheControl)
-					.body(ResponseHandler.generateResponse("successfully retrieved data ", HttpStatus.OK, allStock));
-		}
-
-		return new ResponseEntity<String>("CompanyList is empty", HttpStatus.NO_CONTENT);
+//			return ResponseEntity.ok().cacheControl(cacheControl)
+//					.body(ResponseHandler.generateResponse("successfully retrieved data ", HttpStatus.OK, allStock));
+//		}
+		return new ResponseEntity<List<Company>>(allStock, HttpStatus.OK);
+		
+//		return new ResponseEntity<String>("CompanyList is empty", HttpStatus.NO_CONTENT);
 
 	}
 
@@ -53,8 +56,8 @@ public class Controller {
 	public ResponseEntity<?> getcompany(@PathVariable("cid") int cid) {
 		Company companyInfo = stockService.getCompanyInfo(cid);
 
-		// return new ResponseEntity<Company>(companyInfo,HttpStatus.OK);
-		return ResponseHandler.generateResponse("successfully retrieved data ", HttpStatus.OK, companyInfo);
+		return new ResponseEntity<Company>(companyInfo,HttpStatus.OK);
+		//return ResponseHandler.generateResponse("successfully retrieved data ", HttpStatus.OK, companyInfo);
 
 	}
 
@@ -63,8 +66,8 @@ public class Controller {
 	public ResponseEntity<?> getcompanybyname(@PathVariable("cname") String cname) {
 		Company companyInfo = stockService.getCompanyInfoByName(cname);
 
-		// return new ResponseEntity<Company>(companyInfo,HttpStatus.OK);
-		return ResponseHandler.generateResponse("successfully retrieved data ", HttpStatus.OK, companyInfo);
+		 return new ResponseEntity<Company>(companyInfo,HttpStatus.OK);
+		//return ResponseHandler.generateResponse("successfully retrieved data ", HttpStatus.OK, companyInfo);
 
 	}
 	
@@ -81,7 +84,7 @@ public class Controller {
 	public ResponseEntity<?> deleteStock(@PathVariable("cid") int cid) {
 
 		if (stockService.deleteStock(cid)) {
-			return new ResponseEntity<String>("Record delgeted", HttpStatus.NO_CONTENT);
+			return new ResponseEntity<String>("Record deleted", HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<String>("cannot delete due to internal error", HttpStatus.INTERNAL_SERVER_ERROR);
 

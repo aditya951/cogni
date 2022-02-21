@@ -1,0 +1,10 @@
+{
+  "employee":
+  [
+      {"eid":101,"ename":"Noah","domain":"python"},
+      {"eid":102,"ename":"Judeth","domain":"java"},
+      {"eid":103,"ename":"Jeromiah","domain":"java"},
+      {"eid":104,"ename":"Meredith","domain":"python"}
+  ]
+
+}

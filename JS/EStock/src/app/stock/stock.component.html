@@ -1,0 +1,17 @@
+<!-- <p>stock works!</p> -->
+<h2>AddStock</h2>
+<div>
+  <fieldset>
+    <label class="form-label">Stock Price </label>
+    <input
+      [(ngModel)]="stock.stockPrice"
+      type="text"
+      name="stockPrice"
+      class="form-control"
+    />
+  </fieldset>
+
+  <br />
+  <button class="btn btn-success" (click)="addStock()">save</button>
+</div>
+<br />

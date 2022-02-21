@@ -1,0 +1,41 @@
+<p>admission works!</p>
+<div class="mainDiv">
+  <form #admissionForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Name of the Student</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        required
+        [(ngModel)]="model.name"
+        name="name"
+        #name="ngModel"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Name of the Subject</label>
+      <select
+        class="form-control"
+        id="subject"
+        required
+        [(ngModel)]="model.subject"
+        name="subject"
+      >
+        <option *ngFor="let sub of subjects" [value]="sub">{{ sub }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-info">Submit</button>
+  </form>
+</div>
+<table border="2px solid green">
+  <!--<populate the addmission data here-->
+
+  <tr *ngFor="let obj of s1">
+    <td>{{ obj.key1 }}</td>
+    <td>{{ obj.key2 }}</td>
+  </tr>
+</table>
+
+<br />

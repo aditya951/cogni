@@ -1,0 +1,64 @@
+<!-- <p>create works!</p> -->
+<h2>Update Company</h2>
+<div class="container">
+  <div class="form-floating">
+    <label class="form-label">Company Name</label>
+    <input
+      [(ngModel)]="company.companyName"
+      type="text"
+      name="companyName"
+      class="form-control"
+      required
+    />
+  </div>
+
+  <fieldset>
+    <label>companyCEO:- </label>
+    <input
+      [(ngModel)]="company.companyCEO"
+      type="text"
+      name="companyCEO"
+      required
+      class="form-control"
+    />
+  </fieldset>
+
+  <fieldset>
+    <label>companyTurnover:- </label>
+    <input
+      [(ngModel)]="company.companyTurnover"
+      type="text"
+      name="companyTurnover"
+      minlength="9"
+      required
+      class="form-control"
+    />
+    <small *ngIf="turnover"> shold be greater than 10 cr</small>
+  </fieldset>
+
+  <fieldset>
+    <label>companyWebsite:- </label>
+    <input
+      [(ngModel)]="company.companyWebsite"
+      type="text"
+      name="companyWebsite"
+      required
+      class="form-control"
+    />
+  </fieldset>
+
+  <fieldset>
+    <label>stockExchangeName:- </label>
+    <input
+      [(ngModel)]="company.stockExchangeName"
+      type="text"
+      name="stockExchangeName"
+      required
+      class="form-control"
+    />
+  </fieldset>
+  <br />
+  <button class="btn btn-success" (click)="updateCompany()">save</button>
+</div>
+<br />
+{{ company.companyWebsite }}

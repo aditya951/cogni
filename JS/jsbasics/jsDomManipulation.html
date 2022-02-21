@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      table,
+      td {
+        color: brown;
+        border: 2px solid green;
+      }
+    </style>
+    <title>This is my DOM manipulation</title>
+  </head>
+  <body>
+    <div>
+      <input
+        type="button"
+        value="Create table with delete option"
+        onclick="createTableRow()"
+      />
+    </div>
+    <script>
+      var count = 0;
+      function createTableRow() {
+        var body = document.getElementsByTagName("body")[0];
+        var table = document.createElement("table");
+        table.setAttribute("id", "MyTable");
+        var tableBody = document.createElement("tbody");
+        for (i = 0; i < 1; i++) {
+          count++;
+          var row = document.createElement("tr");
+          for (j = 0; j < 2; j++) {
+            var cell = document.createElement("td");
+            var cellTxt = document.createTextNode("col " + i + j);
+
+            cell.appendChild(cellTxt);
+            row.appendChild(cell);
+          }
+
+          tableBody.appendChild(row);
+        }
+        table.appendChild(tableBody);
+        body.appendChild(table);
+
+        var delbtn = document.createElement("input");
+        delbtn.setAttribute("type", "submit");
+        delbtn.setAttribute("value", "click me");
+        row.appendChild(delbtn);
+        delbtn.setAttribute("onclick", "callDelRow(this)");
+      }
+
+      function callDelRow(r) {
+        obj = r.parentNode.parentNode.parentNode;
+        obj.remove();
+      }
+    </script>
+  </body>
+</html>

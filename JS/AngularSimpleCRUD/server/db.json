@@ -1,0 +1,16 @@
+{
+  "course": [
+    {
+      "courseName": "ds",
+      "coursePrice": "sd",
+      "courseDuration": "sd",
+      "id": 1
+    },
+    {
+      "courseName": "fd",
+      "coursePrice": "dffd",
+      "courseDuration": "fdg",
+      "id": 3
+    }
+  ]
+}

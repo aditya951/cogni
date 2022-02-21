@@ -46,6 +46,20 @@ public class Company {
 		this.stockExchangeName = stockExchangeName;
 		
 	}
+	
+	
+
+	public Company(int companyCode, String companyName, String companyCEO, long companyTurnover, String companyWebsite,
+			String stockExchangeName, List<Stock> stocks) {
+		super();
+		this.companyCode = companyCode;
+		this.companyName = companyName;
+		this.companyCEO = companyCEO;
+		this.companyTurnover = companyTurnover;
+		this.companyWebsite = companyWebsite;
+		this.stockExchangeName = stockExchangeName;
+		this.stocks = stocks;
+	}
 
 	public int getCompanyCode() {
 		return companyCode;

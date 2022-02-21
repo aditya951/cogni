@@ -1,0 +1,26 @@
+<p>student works!</p>
+<p>student works!</p>
+<h1>This is the student component</h1>
+
+<h2>The following data is coming from Model class through component class</h2>
+
+<h3>Student Name:{{ stuObj.sname }}</h3>
+<h3>Student Email:{{ stuObj.email }}</h3>
+<h3>Student Age:{{ stuObj.age }}</h3>
+<br />
+<input
+  type="text"
+  [value]="stuObj.sname"
+  (input)="updateName($event)"
+  size="40"
+/>
+
+<input
+  type="text"
+  [value]="stuObj.email"
+  (input)="updateEmail($event)"
+  size="40"
+/>
+
+<input type="text" [value]="stuObj.age" (input)="updateAge($event)" size="40" />
+<br /><br /><br /><br />

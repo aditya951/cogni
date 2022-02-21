@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Angular Demo1</title>
+  </head>
+  <body>
+    <h3>My company name is: {{ company }}</h3>
+    <!--<h2>The button text will be: </h2>-->
+    <!--<h4>The button style will be: </h4>-->
+
+    <div style="text-align: center; margin-top: auto">
+      <button
+        class="{{ btnCssStyle }}"
+        style="color: rgb(207, 228, 211)"
+        [disabled]="disabledStatus"
+        (click)="showMsg($event)"
+      >
+        {{ btnTxt }}
+      </button>
+    </div>
+
+    <div>
+      <input
+        type="text"
+        [value]="company"
+        (input)="updateCompany($event)"
+        size="40"
+      />
+    </div>
+  </body>
+</html>
+<hr />
+
+<!-- <app-faculty></app-faculty>
+<hr />
+<app-student></app-student>
+
+<hr />
+
+<app-admission></app-admission>
+<hr />
+<app-login></app-login> -->
+
+<a routerLink="/login">Login</a>
+<hr />
+<a routerLink="/student">Student</a>
+<hr />
+<a routerLink="/faculty">Faculty</a>
+<hr />
+<a routerLink="/admission">Admission</a>
+
+<hr />
+<hr />
+<router-outlet></router-outlet>

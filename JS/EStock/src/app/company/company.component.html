@@ -1,0 +1,82 @@
+<!-- <p>company works!</p> -->
+<h1>The company portfolio</h1>
+<div>
+  <h5>Create Company</h5>
+  <button class="btn btn-success" (click)="createoneCompany()">
+    Click here
+  </button>
+</div>
+<br />
+<!-- <div *ngIf="message">{{ message }}</div> -->
+<div class="container">
+  <table class="table-light table-hover" border="1px">
+    <thead>
+      <tr class="table-primary">
+        <th>comapny Code</th>
+        <th>company Name</th>
+        <th>company CEO</th>
+        <th>Turnover</th>
+        <th>Website</th>
+        <th>Stock Exchange Name</th>
+        <th>
+          <tr>
+            <!-- <th>id</th> -->
+            <th>Price</th>
+            <!-- <th>date</th> -->
+            <!-- <th>time</th> -->
+          </tr>
+        </th>
+        <th>Update</th>
+        <th>Delete</th>
+        <th>Add Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-info" *ngFor="let c of companies">
+        <td>
+          <a routerLink="/show/{{ c.companyCode }}">{{ c.companyCode }}</a>
+        </td>
+        <td>{{ c.companyName }}</td>
+        <td>{{ c.companyCEO }}</td>
+        <td>{{ c.companyTurnover }} Rupees</td>
+        <td>
+          <a href="https://{{ c.companyWebsite }}">{{ c.companyWebsite }}</a>
+        </td>
+        <td>{{ c.stockExchangeName }}</td>
+        <!-- <td> -->
+        <!-- <tr *ngFor="let co of c.stocks"> -->
+        <!-- <td>{{ co.id }}</td> -->
+        <td>{{ c.stocks[0].stockPrice }} Rupees</td>
+        <!-- <td>{{ co.date | date: "dd-MMM-yyyy" }}</td> -->
+        <!-- <td>{{ co.date | date: "shortTime" }}</td> -->
+        <!-- </tr> -->
+        <!-- </td> -->
+        <td>
+          <button
+            class="btn btn-warning btn-sm"
+            (click)="updateCompany(c.companyCode)"
+          >
+            Update
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn btn-danger btn-sm"
+            (click)="deleteCompany(c.companyCode)"
+          >
+            Delete
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn btn-primary btn-sm"
+            (click)="AddStock(c.companyCode)"
+          >
+            Add Stock
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br />
