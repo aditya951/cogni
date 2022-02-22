@@ -1,1 +1,10 @@
-
+.foot {
+  border: 1px solid black;
+  background-color: blueviolet;
+  color: aliceblue;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: end;
+  padding-right: 10px;
+}

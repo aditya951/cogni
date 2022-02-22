@@ -1,6 +1,7 @@
 <!-- <p>new-company works!</p> -->
 <h2>Create new company</h2>
 <div class="container">
+  <div id="error">{{ error }}</div>
   <form
     (ngSubmit)="!createForm.invalid && createCompany()"
     #createForm="ngForm"
@@ -37,7 +38,6 @@
           type="text"
           name="companyTurnover"
           required="required"
-          minlength="9"
           placeholder="should be greater than 10cr"
           class="form-control"
         />

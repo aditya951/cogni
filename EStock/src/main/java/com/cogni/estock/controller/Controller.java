@@ -51,6 +51,15 @@ public class Controller {
 //		return new ResponseEntity<String>("CompanyList is empty", HttpStatus.NO_CONTENT);
 
 	}
+	
+	@GetMapping("/company/{str}")
+	public ResponseEntity<?> getCompanySearch(@PathVariable("str") String str) {
+		List<Company> allSearch = stockService.getAllSearch(str);
+
+		return new ResponseEntity<List<Company>>(allSearch,HttpStatus.OK);
+		//return ResponseHandler.generateResponse("successfully retrieved data ", HttpStatus.OK, companyInfo);
+
+	}
 
 	@GetMapping("/company/info/{cid}")
 	public ResponseEntity<?> getcompany(@PathVariable("cid") int cid) {

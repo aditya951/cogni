@@ -1,15 +1,27 @@
 <!-- <p>company works!</p> -->
 <h1>The company portfolio</h1>
+
 <div>
-  <h5>Create Company</h5>
-  <button class="btn btn-success" (click)="createoneCompany()">
-    Click here
-  </button>
+  <span>Create Company</span>
+  <button class="btnn" (click)="createoneCompany()">Click here</button>
+  <div class="search-container">
+    <input
+      [(ngModel)]="search"
+      type="text"
+      name="search"
+      required="required"
+      placeholder="search company"
+      class="searchbar"
+    />
+    <button class="btnn" (click)="searchCompany()">
+      <i class="fa fa-search"></i>
+    </button>
+  </div>
 </div>
 <br />
 <!-- <div *ngIf="message">{{ message }}</div> -->
 <div class="container">
-  <table class="table-light table-hover" border="1px">
+  <table class="table-light table-hover" border="1">
     <thead>
       <tr class="table-primary">
         <th>comapny Code</th>
@@ -18,14 +30,14 @@
         <th>Turnover</th>
         <th>Website</th>
         <th>Stock Exchange Name</th>
-        <th>
-          <tr>
-            <!-- <th>id</th> -->
-            <th>Price</th>
-            <!-- <th>date</th> -->
-            <!-- <th>time</th> -->
-          </tr>
-        </th>
+        <!-- <th> -->
+        <!-- <tr> -->
+        <!-- <th>id</th> -->
+        <th>Price</th>
+        <!-- <th>date</th> -->
+        <!-- <th>time</th> -->
+        <!-- </tr> -->
+        <!-- </th> -->
         <th>Update</th>
         <th>Delete</th>
         <th>Add Stock</th>
@@ -60,11 +72,8 @@
           </button>
         </td>
         <td>
-          <button
-            class="btn btn-danger btn-sm"
-            (click)="deleteCompany(c.companyCode)"
-          >
-            Delete
+          <button class="delete" (click)="deleteCompany(c.companyCode)">
+            <i class="fa fa-trash iocn"></i>
           </button>
         </td>
         <td>
@@ -79,4 +88,3 @@
     </tbody>
   </table>
 </div>
-<br />

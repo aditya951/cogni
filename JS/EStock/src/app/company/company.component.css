@@ -8,3 +8,27 @@ td {
 th {
   text-align: center;
 }
+table {
+  margin-bottom: 40px;
+}
+.search-container {
+  float: right;
+}
+.searchbar {
+  margin-right: 10px;
+  border-radius: 10px;
+}
+.btnn {
+  background-color: rgb(142, 178, 226);
+  border: 1px solid;
+  border-radius: 5px;
+}
+span {
+  margin-right: 10px;
+  font-weight: 700;
+  font-size: large;
+}
+.delete {
+  border: none;
+  background-color: transparent;
+}

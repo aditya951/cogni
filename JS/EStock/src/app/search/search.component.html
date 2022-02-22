@@ -1,0 +1,51 @@
+<div *ngIf="!show" id="warning">
+  <h2>{{ message }}</h2>
+</div>
+
+<div *ngIf="show">
+  <h1>Company Starts with '{{ name }}'</h1>
+  <div class="container">
+    <table class="table-light table-hover" border="1">
+      <thead>
+        <tr class="table-primary">
+          <th>comapny Code</th>
+          <th>company Name</th>
+          <th>company CEO</th>
+          <th>Turnover</th>
+          <th>Website</th>
+          <th>Stock Exchange Name</th>
+          <!-- <th> -->
+          <!-- <tr> -->
+          <!-- <th>id</th> -->
+          <th>Price</th>
+          <!-- <th>date</th> -->
+          <!-- <th>time</th> -->
+          <!-- </tr> -->
+          <!-- </th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-info" *ngFor="let c of companies">
+          <td>
+            <a routerLink="/show/{{ c.companyCode }}">{{ c.companyCode }}</a>
+          </td>
+          <td>{{ c.companyName }}</td>
+          <td>{{ c.companyCEO }}</td>
+          <td>{{ c.companyTurnover }} Rupees</td>
+          <td>
+            <a href="https://{{ c.companyWebsite }}">{{ c.companyWebsite }}</a>
+          </td>
+          <td>{{ c.stockExchangeName }}</td>
+          <!-- <td> -->
+          <!-- <tr *ngFor="let co of c.stocks"> -->
+          <!-- <td>{{ co.id }}</td> -->
+          <td>{{ c.stocks[0].stockPrice }} Rupees</td>
+          <!-- <td>{{ co.date | date: "dd-MMM-yyyy" }}</td> -->
+          <!-- <td>{{ co.date | date: "shortTime" }}</td> -->
+          <!-- </tr> -->
+          <!-- </td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

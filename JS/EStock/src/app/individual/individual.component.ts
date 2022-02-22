@@ -10,14 +10,17 @@ import { CompanyDataService } from '../service/data/company-data.service';
 })
 export class IndividualComponent implements OnInit {
   id!: number;
-  company!: Company;
+  company: Company | any;
   turnover: number | any;
   val!: number;
   val1!: string;
+  show: boolean = false;
+  show1: boolean = false;
   max: number = -999999999999999;
   min: number = 9999999999999999;
   avg: number = 0;
   sum: number = 0;
+  error: string = '';
   constructor(
     private svc: CompanyDataService,
     private route: ActivatedRoute,
@@ -25,24 +28,20 @@ export class IndividualComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.company = new Company(
-      59,
-      'google',
-      'zack',
-      100450,
-      'google.com',
-      'nse',
-      []
-    );
+    this.company = new Company(0, '', '', 0, '', '', []);
     this.id = this.route.snapshot.params['id'];
-    this.svc.getCompany(this.id).subscribe((data) => {
-      this.company = data;
-      console.log(this.company);
-      this.turnover = this.conversion(this.company.companyTurnover);
-      this.maximum(this.company);
-      this.minimum(this.company);
-      this.average(this.company);
-    });
+    this.svc.getCompany(this.id).subscribe(
+      (data) => {
+        this.company = data;
+        console.log(this.company);
+        this.turnover = this.conversion(this.company.companyTurnover);
+        this.maximum(this.company);
+        this.minimum(this.company);
+        this.average(this.company);
+        this.show1 = true;
+      },
+      (error) => this.handleError(error)
+    );
   }
 
   conversion(tu: number) {
@@ -65,6 +64,7 @@ export class IndividualComponent implements OnInit {
     for (let stock of c.stocks) {
       if (stock.stockPrice <= this.min) {
         this.min = stock.stockPrice;
+        this.show = true;
       }
     }
   }
@@ -74,5 +74,12 @@ export class IndividualComponent implements OnInit {
       this.sum = this.sum + stock.stockPrice;
     }
     this.avg = this.sum / c.stocks.length;
+  }
+
+  handleError(error: any) {
+    console.log(error);
+    console.log(error.error);
+    console.log(error.error.message);
+    this.error = error.error.message;
   }
 }

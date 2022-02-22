@@ -1,71 +1,76 @@
 <!-- <p>individual works!</p> -->
-<h1>{{ company.companyName }} company</h1>
-<div class="container">
-  <table class="table table-light table-hover" border="1px">
-    <thead>
-      <tr class="table-primary">
-        <th>Comapny Code</th>
-        <th>Company Name</th>
-        <th>company CEO</th>
-        <th>Turnover</th>
-        <th>Website</th>
-        <th>Stock Exchange Name</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="table-info">
-        <td>
-          {{ company.companyCode }}
-        </td>
-        <td>{{ company.companyName }}</td>
-        <td>{{ company.companyCEO }}</td>
-        <td>{{ turnover }} Rupees</td>
-        <td>
-          <a href="https://{{ company.companyWebsite }}">{{
-            company.companyWebsite
-          }}</a>
-        </td>
-        <td>{{ company.stockExchangeName }}</td>
-      </tr>
-    </tbody>
-  </table>
-  <br />
-  <table class="table table-light table-hover" border="1px">
-    <thead>
-      <tr class="table-primary">
-        <th>Highest Stock Price</th>
-        <th>Lowest Stock Price</th>
-        <th>Average of All Stock Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="table-info">
-        <td>{{ max }}</td>
-        <td>{{ min }}</td>
-        <td>{{ avg }}</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3>All Stocks</h3>
-  <div>
+<div *ngIf="!show1" id="error">
+  <h2>{{ error }}</h2>
+</div>
+<div *ngIf="show1">
+  <h1>{{ company.companyName }} company</h1>
+  <div class="container">
     <table class="table table-light table-hover" border="1px">
       <thead>
         <tr class="table-primary">
-          <!-- <th>id</th> -->
-          <th>Price</th>
-          <th>Date</th>
-          <th>Time</th>
+          <th>Comapny Code</th>
+          <th>Company Name</th>
+          <th>company CEO</th>
+          <th>Turnover</th>
+          <th>Website</th>
+          <th>Stock Exchange Name</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="table-info" *ngFor="let co of company.stocks">
-          <!-- <td>{{ co.id }}</td> -->
-          <td>{{ co.stockPrice }} Rupees</td>
-          <td>{{ co.date | date: "dd-MMM-yyyy" }}</td>
-          <td>{{ co.date | date: "shortTime" }}</td>
+        <tr class="table-info">
+          <td>
+            {{ company.companyCode }}
+          </td>
+          <td>{{ company.companyName }}</td>
+          <td>{{ company.companyCEO }}</td>
+          <td>{{ turnover }} Rupees</td>
+          <td>
+            <a href="https://{{ company.companyWebsite }}">{{
+              company.companyWebsite
+            }}</a>
+          </td>
+          <td>{{ company.stockExchangeName }}</td>
         </tr>
       </tbody>
     </table>
+    <br />
+    <table *ngIf="show" class="table table-light table-hover" border="1px">
+      <thead>
+        <tr class="table-primary">
+          <th>Highest Stock Price</th>
+          <th>Lowest Stock Price</th>
+          <th>Average of All Stock Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-info">
+          <td>{{ max }}</td>
+          <td>{{ min }}</td>
+          <td>{{ avg }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>All Stocks</h3>
+    <div>
+      <table class="table table-light table-hover" border="1px">
+        <thead>
+          <tr class="table-primary">
+            <!-- <th>id</th> -->
+            <th>Price</th>
+            <th>Date</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-info" *ngFor="let co of company.stocks">
+            <!-- <td>{{ co.id }}</td> -->
+            <td>{{ co.stockPrice }} Rupees</td>
+            <td>{{ co.date | date: "dd-MMM-yyyy" }}</td>
+            <td>{{ co.date | date: "shortTime" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 <br />

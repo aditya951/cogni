@@ -4,14 +4,15 @@ import { Company } from '../company/company.component';
 import { CompanyDataService } from '../service/data/company-data.service';
 
 @Component({
-  selector: 'app-new-company',
-  templateUrl: './new-company.component.html',
-  styleUrls: ['./new-company.component.css'],
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css'],
 })
-export class NewCompanyComponent implements OnInit {
-  company: Company | any;
-  turnover: boolean = false;
-  error: string = '';
+export class SearchComponent implements OnInit {
+  companies: Company[] = [];
+  name!: string;
+  message!: string;
+  show: boolean = false;
 
   constructor(
     private svc: CompanyDataService,
@@ -20,18 +21,15 @@ export class NewCompanyComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.company = new Company(0, '', '', 0, '', '', []);
-  }
-
-  createCompany() {
-    if (this.company.companyTurnover < 100000000) {
-      this.turnover = true;
-    }
-
-    this.svc.createCompany(this.company).subscribe(
+    this.name = this.route.snapshot.params['name'];
+    this.svc.retrieveByName(this.name).subscribe(
       (data) => {
-        console.log(data);
-        this.router.navigate(['companies']);
+        this.companies = data;
+        console.log(this.companies);
+        if (this.companies.length == 0) {
+          this.show = false;
+          this.message = 'No Company with this name';
+        } else this.show = true;
       },
       (error) => this.handleError(error)
     );
@@ -41,6 +39,5 @@ export class NewCompanyComponent implements OnInit {
     console.log(error);
     console.log(error.error);
     console.log(error.error.message);
-    this.error = error.error.message;
   }
 }
