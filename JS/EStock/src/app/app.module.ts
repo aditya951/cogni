@@ -12,6 +12,11 @@ import { StockComponent } from './stock/stock.component';
 import { IndividualComponent } from './individual/individual.component';
 import { SearchComponent } from './search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialComponent } from './material/material.component';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -22,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     StockComponent,
     IndividualComponent,
     SearchComponent,
+    MaterialComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +35,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

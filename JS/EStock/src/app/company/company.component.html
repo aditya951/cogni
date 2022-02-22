@@ -63,10 +63,19 @@
         <!-- <td>{{ co.date | date: "shortTime" }}</td> -->
         <!-- </tr> -->
         <!-- </td> -->
-        <td>
+        <!-- <td>
           <button
             class="btn btn-warning btn-sm"
             (click)="updateCompany(c.companyCode)"
+          >
+            Update
+          </button>
+        </td> -->
+        <td>
+          <button
+            (click)="updateCompany(c.companyCode)"
+            mat-flat-button
+            color="primary"
           >
             Update
           </button>
