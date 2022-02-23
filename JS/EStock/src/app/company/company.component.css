@@ -4,6 +4,7 @@ td {
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: aliceblue;
 }
 th {
   text-align: center;
@@ -25,7 +26,7 @@ table {
 .btnn {
   background-color: rgb(142, 178, 226);
   border: 1px solid;
-  border-radius: 5px;
+  border-radius: 15px;
 }
 span {
   margin-right: 10px;
