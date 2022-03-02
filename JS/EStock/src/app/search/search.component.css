@@ -1,4 +1,4 @@
-#warning {
+/* #warning {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,4 +20,8 @@ th {
 }
 tr {
   margin: 0;
+} */
+table {
+  background: transparent;
+  width: 100%;
 }

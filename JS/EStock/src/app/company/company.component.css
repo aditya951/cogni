@@ -4,14 +4,19 @@ td {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: aliceblue;
+  background-color: transparent;
+  color: black;
+  font-weight: 500;
 }
 th {
   text-align: center;
+  background-color: transparent;
 }
 table {
   margin-bottom: 60px;
   padding-bottom: 50px;
+  background: transparent;
+  width: 100%;
 }
 .search-container {
   float: right;
@@ -36,4 +41,22 @@ span {
 .delete {
   border: none;
   background-color: transparent;
+}
+.topi {
+  border-radius: 15px;
+  text-align: center;
+  margin: 10px;
+  justify-content: center;
+  background-color: transparent;
+  color: aliceblue;
+  font-weight: 200;
+}
+.bto {
+  background-color: transparent;
+  border: none;
+}
+
+a {
+  color: rgb(87, 15, 15);
+  text-decoration: underline;
 }

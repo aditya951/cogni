@@ -13,6 +13,16 @@ export class SearchComponent implements OnInit {
   name!: string;
   message!: string;
   show: boolean = false;
+  displayedColumns: string[] = [
+    'position',
+    'name',
+    'weight',
+    'symbol',
+    'companyWebsite',
+    'stockExchangeName',
+  ];
+
+  dataSource = this.companies;
 
   constructor(
     private svc: CompanyDataService,
@@ -25,6 +35,7 @@ export class SearchComponent implements OnInit {
     this.svc.retrieveByName(this.name).subscribe(
       (data) => {
         this.companies = data;
+        this.dataSource = this.companies;
         console.log(this.companies);
         if (this.companies.length == 0) {
           this.show = false;

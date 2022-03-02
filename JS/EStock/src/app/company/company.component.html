@@ -1,5 +1,5 @@
 <!-- <p>company works!</p> -->
-<h1>The company portfolio</h1>
+<div class="topi"><h1>The company portfolio</h1></div>
 
 <div>
   <span>Create Company</span>
@@ -21,9 +21,9 @@
 <br />
 <!-- <div *ngIf="message">{{ message }}</div> -->
 <div class="container">
-  <table class="table-light table-hover" border="1">
+  <table class="table-light table-hover">
     <thead>
-      <tr class="table-primary">
+      <tr>
         <th>comapny Code</th>
         <th>company Name</th>
         <th>company CEO</th>
@@ -44,7 +44,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="table-info" *ngFor="let c of companies">
+      <tr id="adi" *ngFor="let c of companies">
         <td>
           <a routerLink="/show/{{ c.companyCode }}">{{ c.companyCode }}</a>
         </td>
@@ -76,18 +76,19 @@
             (click)="updateCompany(c.companyCode)"
             mat-flat-button
             color="primary"
+            class="bto"
           >
             Update
           </button>
         </td>
         <td>
-          <button class="delete" (click)="deleteCompany(c.companyCode)">
+          <button class="delete bto" (click)="deleteCompany(c.companyCode)">
             <i class="fa fa-trash iocn"></i>
           </button>
         </td>
         <td>
           <button
-            class="btn btn-primary btn-sm"
+            class="btn btn-primary btn-sm bto"
             (click)="AddStock(c.companyCode)"
           >
             Add Stock
