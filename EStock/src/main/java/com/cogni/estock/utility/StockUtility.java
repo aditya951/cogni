@@ -48,6 +48,7 @@ public class StockUtility {
 //				 sto.setDate(max);
 //				 s.add(sto);
 			}
+			cmp.setStocks(s);
 			
 			list.add(cmp);
 		}

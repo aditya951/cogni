@@ -1,9 +1,12 @@
 package com.cogni.estock.service;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,13 +26,19 @@ public class StockService {
 	@Autowired
 	private StockUtility stockUtility;
 
-	public List<Company> getAllStock() {
+	public List<Company> getAllStock(String sortType) {
 		List<Company> stockList = stockRepository.findAll();
 		
 		List<Company> findLatest = stockUtility.findLatest(stockList);
 		//System.out.println(findLatest +" aditya");
+		//Collections.sort(findLatest,Comparator.comparing(Company::getCompanyName));
+		
+		if(sortType!=null&&sortType.equalsIgnoreCase("companyName")) {
+			findLatest.sort(Comparator.comparing(Company::getCompanyName));
+		}
+		
 		return findLatest;
-
+		
 	}
 
 	public List<Company> getAllSearch(String str) {

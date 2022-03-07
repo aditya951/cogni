@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cogni.estock.model.Company;
@@ -31,13 +32,15 @@ public class Controller {
 	StockService stockService;
 
 	@GetMapping("/hello")
-	public String hello() {
-		return "hello Aditya";
+	public String hello(@RequestParam("sort") String sort) {
+		System.out.println(sort+" sort");
+		return "hello Aditya sort value is " +sort;
 	}
 
 	@GetMapping("/company/getall")
-	public ResponseEntity<?> getAll() {
-		List<Company> allStock = stockService.getAllStock();
+	public ResponseEntity<?> getAll(@RequestParam(required = false,value= "sort") String sortType) {
+		
+		List<Company> allStock = stockService.getAllStock(sortType);
 
 //		if (allStock != null) {
 //			CacheControl cacheControl = CacheControl.maxAge(30, TimeUnit.MINUTES);

@@ -40,6 +40,7 @@ export class CompanyComponent implements OnInit {
   company!: Company;
   message: string | undefined;
   search: string = '';
+  emt: string | undefined;
 
   constructor(public sevc: CompanyDataService, private router: Router) {}
 
@@ -112,5 +113,69 @@ export class CompanyComponent implements OnInit {
     console.log(error);
     console.log(error.error);
     console.log(error.error.message);
+  }
+
+  sortByCode() {
+    console.log('code clicked');
+    this.companies.sort((a, b) => {
+      return b.companyCode - a.companyCode;
+    });
+  }
+  sortByName() {
+    console.log('sortByName');
+    console.log('code clicked');
+    this.companies.sort((a, b) => {
+      let fa = a.companyName.toLowerCase();
+      let fb = b.companyName.toLowerCase();
+      if (fa < fb) {
+        return -1;
+      }
+      if (fa > fb) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+  sortByCEO() {
+    console.log('sortByCEO');
+    this.companies.sort((a, b) => {
+      let fa = a.companyCEO.toLowerCase();
+      let fb = b.companyCEO.toLowerCase();
+      if (fa < fb) {
+        return -1;
+      }
+      if (fa > fb) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+  sortByTurnover() {
+    console.log('sortByTurnover');
+
+    this.companies.sort((a, b) => {
+      return b.companyTurnover - a.companyTurnover;
+    });
+  }
+  sortByexchange() {
+    console.log('sortByexchange');
+    this.companies.sort((a, b) => {
+      let fa = a.stockExchangeName.toLowerCase();
+      let fb = b.stockExchangeName.toLowerCase();
+      if (fa < fb) {
+        return -1;
+      }
+      if (fa > fb) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+  sortByPrice() {
+    console.log('sortByexchange');
+
+    this.companies.sort((a, b) => {
+      return b.stocks[0].stockPrice - a.stocks[0].stockPrice;
+    });
   }
 }

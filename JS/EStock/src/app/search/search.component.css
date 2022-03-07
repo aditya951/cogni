@@ -25,3 +25,7 @@ table {
   background: transparent;
   width: 100%;
 }
+td,
+th {
+  color: aliceblue;
+}

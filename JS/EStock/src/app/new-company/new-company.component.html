@@ -1,6 +1,7 @@
 <!-- <p>new-company works!</p> -->
-<h2>Create new company</h2>
-<div class="container">
+<div id="full">
+  <h2>Create new company</h2>
+  <!-- <div class="container"> -->
   <div id="error">{{ error }}</div>
   <form
     (ngSubmit)="!createForm.invalid && createCompany()"
@@ -71,7 +72,8 @@
       <button class="btn btn-primary" type="submit">Add Company</button>
     </div>
   </form>
-</div>
+  <!-- </div> -->
 
-<br />
-<!-- {{ company.companyWebsite }} -->
+  <br />
+  <!-- {{ company.companyWebsite }} -->
+</div>

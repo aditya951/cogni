@@ -60,3 +60,7 @@ a {
   color: rgb(87, 15, 15);
   text-decoration: underline;
 }
+.btnnarrow {
+  background-color: transparent;
+  border: none;
+}
