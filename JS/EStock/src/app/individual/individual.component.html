@@ -23,7 +23,7 @@
           </td>
           <td>{{ company.companyName }}</td>
           <td>{{ company.companyCEO }}</td>
-          <td>{{ turnover }} Rupees</td>
+          <td>&#8377; {{ turnover }}</td>
           <td>
             <a href="https://{{ company.companyWebsite }}">{{
               company.companyWebsite
@@ -44,9 +44,9 @@
       </thead>
       <tbody>
         <tr class="table-info">
-          <td>{{ max }}</td>
-          <td>{{ min }}</td>
-          <td>{{ avg }}</td>
+          <td>&#8377; {{ max }}</td>
+          <td>&#8377; {{ min }}</td>
+          <td>&#8377; {{ avg }}</td>
         </tr>
       </tbody>
     </table>
@@ -64,7 +64,7 @@
         <tbody>
           <tr class="table-info" *ngFor="let co of company.stocks">
             <!-- <td>{{ co.id }}</td> -->
-            <td>{{ co.stockPrice }} Rupees</td>
+            <td>&#8377; {{ co.stockPrice }}</td>
             <td>{{ co.date | date: "dd-MMM-yyyy" }}</td>
             <td>{{ co.date | date: "shortTime" }}</td>
           </tr>
